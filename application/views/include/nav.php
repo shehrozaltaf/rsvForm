@@ -12,12 +12,12 @@
     </div>
     <div class="menu_section">
         <ul id="sideBarMenu">
-            <li title="Dashboard">
-                <a href="javascript:void(0)">
-                    <span class="menu_title">Dashboard</span>
+            <li title="Form">
+                <a href="<?php echo base_url('index.php/Form') ?>">
+                    <span class="menu_title">Form</span>
                 </a>
             </li>
-            <li title="Dashboard">
+            <li title="Users">
                 <a href="<?php echo base_url('index.php/Users') ?>">
                     <span class="menu_title">Users</span>
                 </a>

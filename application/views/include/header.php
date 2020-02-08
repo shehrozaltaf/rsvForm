@@ -14,52 +14,39 @@
 
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url() ?>assets/img/favicon.ico"/>
     <link rel="icon" type="image/ico" href="<?= base_url() ?>assets/img/favicon.ico"/>
-
-    <title>Aga Khan - Portal</title>
-
-
+    <title>RSV Form</title>
     <!-- uikit -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/bower_components/uikit/css/uikit.almost-flat.min.css"
           media="all">
-
     <!-- flag icons -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/icons/flags/flags.min.css" media="all">
-
     <!-- style switcher -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style_switcher.min.css" media="all">
-
     <!-- altair admin -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/main.min.css" media="all">
-
     <!-- themes -->
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/themes/themes_combined.min.css" media="all">
     <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <!-- common jquery functions -->
     <script src="<?= base_url() ?>assets/js/common.min.js"></script>
     <script src="<?= base_url() ?>assets/js/core.js"></script>
-
     <!-- uikit functions -->
     <script src="<?= base_url() ?>assets/js/uikit_custom.min.js"></script>
     <!-- common functions -->
     <script src="<?= base_url() ?>assets/js/common.min.js"></script>
-
     <!-- page specific plugins -->
     <!-- d3 -->
     <script src="<?= base_url() ?>assets/bower_components/d3/d3.min.js"></script>
-
-
 </head>
 <body class="disable_transitions sidebar_main_open sidebar_main_swipe">
 <!-- main header -->
 <header id="header_main">
     <div class="header_main_content">
         <nav class="uk-navbar">
-
             <!-- main sidebar switch -->
             <a href="#" id="sidebar_main_toggle" class="sSwitch sSwitch_left">
                 <span class="sSwitchIcon"></span>
             </a>
-
             <div class="uk-navbar-flip">
                 <ul class="uk-navbar-nav user_actions">
                     <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
