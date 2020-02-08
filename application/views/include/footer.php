@@ -30,38 +30,16 @@
 <!--  notifications functions -->
 <script src="<?= base_url() ?>assets/js/pages/components_notifications.min.js"></script>
 <script>
-
     function logout() {
         CallAjax('<?= base_url('Dashboard/getLogout')?>', {}, 'POST', function (res) {
             window.location.href = "<?php echo base_url() ?>";
         });
     }
-
-    $(document).ready(function () {
-        getMenu();
-    });
-
-    function getMenu() {
-        CallAjax('<?php echo base_url('Dashboard/getMenuData') ?>', [], "POST", function (Result) {
-            $('#sideBarMenu').html(Result);
-            setTimeout(function () {
-                altair_main_sidebar.init();
-            }, 100);
-        });
-    }
-
 </script>
-
-
-<!-- page specific plugins -->
-<!-- parsley (validation) -->
 <script>
-    // load parsley config (altair_admin_common.js)
     altair_forms.parsley_validation_config();
 </script>
 <script src="<?= base_url() ?>assets/bower_components/parsleyjs/dist/parsley.min.js"></script>
-
-
 <!-- page specific plugins -->
 <!-- datatables -->
 <script src="<?= base_url() ?>assets/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -76,7 +54,6 @@
 <script src="<?= base_url() ?>assets/bower_components/datatables-buttons/js/buttons.print.js"></script>
 <!-- datatables custom integration -->
 <script src="<?= base_url() ?>assets/js/custom/datatables/datatables.uikit.min.js"></script>
-
 <!--  datatables functions -->
 <script src="<?= base_url() ?>assets/js/pages/plugins_datatables.min.js"></script>
 
@@ -98,7 +75,6 @@
         altair_helpers.ie_fix();
     });
 </script>
-
 
 <div id="style_switcher">
     <div id="style_switcher_toggle"><i class="material-icons">&#xE8B8;</i></div>

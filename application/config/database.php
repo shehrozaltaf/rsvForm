@@ -75,11 +75,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
     'dsn' => '',
-    'hostname' => 'localhost:3308',
-    'username' => 'root',
-    'password' => '',
-    'database' => 'akuportal',
-    'dbdriver' => 'mysqli',
+    'hostname' => 'f38158',
+    'username' => 'shahroz.khan',
+    'password' => 'abcd1234',
+//    'username' => 'sa',
+//    'password' => 'sa',
+    'database' => 'rsv',
+    'dbdriver' => 'sqlsrv',
     'dbprefix' => '',
     'pconnect' => FALSE,
     'db_debug' => (ENVIRONMENT !== 'production'),

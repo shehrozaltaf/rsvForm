@@ -43,12 +43,10 @@ class Login extends CI_Controller
             $Password = $this->input->post('Password');
             $result = $Login->validate($username, $Password);
             if (count($result) == 1) {
-                if ($Password === $this->encrypt->decode($result[0]->Password)) {
+                if ($Password === $result[0]->password) {
                     $data = array(
-                        'idUser' => $result[0]->idUser,
-                        'UserName' => $result[0]->UserName,
-                        'idGroup' => $result[0]->idGroup,
-                        'idOrg' => $result[0]->id_org
+                        'idUser' => $result[0]->username,
+                        'UserName' => $result[0]->username
                     );
                     $this->session->set_userdata('login', $data);
                     echo 1;
@@ -60,7 +58,6 @@ class Login extends CI_Controller
             }
         }
     }
-
 
     function ForgetPass()
     {
@@ -117,3 +114,5 @@ class Login extends CI_Controller
         return implode($pass);
     }
 }
+
+?>

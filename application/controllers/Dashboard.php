@@ -27,24 +27,6 @@ class Dashboard extends CI_Controller
         $this->load->view('include/footer');
     }
 
-    /*Setting Page, User Rights*/
-    function getMenuData()
-    {
-        $idGroup = $_SESSION['login']['idGroup'];
-        $Menu = '';
-        $this->load->model('msetting');
-        $Msetting = new Msetting();
-        $getDataRights = $Msetting->getFormRights($idGroup, '1', '');
-        if (isset($getDataRights) && count($getDataRights) >= 1) {
-            foreach ($getDataRights as $pages) {
-                $Menu .= '<li><a href="' . base_url($pages->page_url) . '">' . $pages->page_name . '</a></li>';
-            }
-        } else {
-            $Menu = '';
-        }
-        echo $Menu;
-    }
-
     /*Logout*/
     function getLogout()
     {
