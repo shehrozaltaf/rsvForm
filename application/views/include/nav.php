@@ -10,9 +10,18 @@
             </a>
         </div>
     </div>
-
     <div class="menu_section">
         <ul id="sideBarMenu">
+            <li title="Dashboard">
+                <a href="javascript:void(0)">
+                    <span class="menu_title">Dashboard</span>
+                </a>
+            </li>
+            <li title="Dashboard">
+                <a href="<?php echo base_url('index.php/Users') ?>">
+                    <span class="menu_title">Users</span>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>

@@ -29,8 +29,6 @@
                                 <th>SNo</th>
                                 <th>Name</th>
                                 <th>User Name</th>
-                                <th>Designation</th>
-                                <th>Group</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -39,8 +37,6 @@
                                 <th>SNo</th>
                                 <th>Name</th>
                                 <th>User Name</th>
-                                <th>Designation</th>
-                                <th>Group</th>
                                 <th>Action</th>
                             </tr>
                             </tfoot>
@@ -54,21 +50,13 @@
                                     $td = '<tr>
                              <td>' . $sno . '</td> 
                              <td>' . $data->full_name . '</td>  
-                             <td>' . $data->UserName . '</td>  
-                             <td>' . $data->designation . '</td>  
-                             <td>' . $data->GroupName . '</td>  
-                             <td >  ';
-                                    if (isset($permission[0]->CanEdit) && $permission[0]->CanEdit == 1) {
-                                        $td .= '<a href="javascript:void(0)"   onclick="getEdit(this);"
-                                        data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">edit</i></a>';
-                                    }
-
-                                    if (isset($permission[0]->CanDelete) && $permission[0]->CanDelete == 1) {
-                                        $td .= '<a href="javascript:void(0)" onclick="getDelete(this);"
-                                         data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">delete</i></a>';
-                                    }
-
-                                    $td .= '</td>
+                             <td>' . $data->username . '</td>   
+                             <td>  
+                                <a href="javascript:void(0)"   onclick="getEdit(this);"
+                                        data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">edit</i></a>
+                                <a href="javascript:void(0)" onclick="getDelete(this);"
+                                         data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">delete</i></a>
+                                </td>
                                 </tr>';
                                     echo $td;
                                 }
@@ -81,16 +69,12 @@
         </div>
     </div>
 </div>
-<?php
-if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) {
-    echo '<div class="md-fab-wrapper">
+<div class="md-fab-wrapper">
     <a class="md-fab md-fab-accent md-fab-wave-light waves-effect waves-button waves-light" href="javascript:void(0)"
-       data-uk-modal="{target:\'#addModal\'}" id="invoice_add">
+       data-uk-modal="{target:'#addModal'}" id="invoice_add">
         <i class="material-icons">add</i>
     </a>
-</div>';
-}
-?>
+</div>
 
 <div class="uk-modal" id="addModal" aria-hidden="true" style="display: none; overflow-y: auto;">
     <div class="uk-modal-dialog" style="top: 97px;">
@@ -124,31 +108,6 @@ if (isset($permission[0]->CanAdd) && $permission[0]->CanAdd == 1) {
                     <input type="password" id="password" name="password" class="md-input label-fixed"
                            required>
                     <span class="md-input-bar "></span>
-                </div>
-            </div>
-        </div>
-        <div class="uk-grid" data-uk-grid-margin>
-            <div class="uk-width-medium-1-1">
-                <div class="md-input-wrapper md-input-filled">
-                    <label for="designation">Designation</label>
-                    <input type="text" id="designation" name="designation" class="md-input label-fixed"
-                           required>
-                    <span class="md-input-bar "></span>
-                </div>
-            </div>
-        </div>
-        <div class="uk-grid" data-uk-grid-margin>
-            <div class="uk-width-medium-1-1">
-                <div class="md-input-wrapper md-input-filled">
-                    <label for="idGroup">Select Group Right</label>
-                    <select id="idGroup" name="idGroup" class="md-input" data-uk-tooltip="{pos:'top'}">
-                        <option value="0" disabled selected hidden>Select Group</option>
-                        <?php if (isset($getGroup) && $getGroup != '') {
-                            foreach ($getGroup as $key => $Group) {
-                                echo '<option value="' . $Group->idGroup . '">' . $Group->GroupName . '</option>';
-                            }
-                        } ?>
-                    </select>
                 </div>
             </div>
         </div>

@@ -2,19 +2,12 @@
     exit('No direct script access allowed');
 }
 
-/**
- * Created by PhpStorm.
- * User: shahroz.khan
- * Date: 23/10/2018
- * Time: 11:26 AM
- */
 class Users extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('musers');
-        $this->load->model('msetting');
         $this->load->model('custom');
         if (!isset($_SESSION['login']['idUser'])) {
             redirect(base_url());
@@ -26,11 +19,6 @@ class Users extends CI_Controller
         $getData = array();
         $MUsers = new MUsers();
         $getData['getData'] = $MUsers->getUsers();
-
-        $Msetting = new Msetting();
-        $getData['permission'] = $Msetting->getFormRights($_SESSION['login']['idGroup'], '', 'users');
-        $getData['getGroup'] = $Msetting->getAllGroups();
-
         $this->load->view('include/header', $getData);
         $this->load->view('include/nav');
         $this->load->view('Users');
@@ -90,7 +78,7 @@ class Users extends CI_Controller
     {
 
         $MUsers = new MUsers();
-        $result = $MUsers->getUserById($this->input->post('id'));
+        $result = $MUsers->checkUsername($this->input->post('id'));
         $response[0] = array('idUser' => $result[0]->idUser,
             'UserName' => $result[0]->UserName,
             'Password' => $this->encrypt->decode($result[0]->Password) ,

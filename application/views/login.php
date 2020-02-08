@@ -85,7 +85,7 @@
             CallAjax('<?= base_url('index.php/Login/getLogin')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     setTimeout(function () {
-                        window.location.href = "<?php echo base_url() . 'dashboard' ?>";
+                        window.location.href = "<?php echo base_url() . 'index.php/dashboard' ?>";
                     }, 2000);
                     returnMsg('msgText', 'Success', 'uk-alert-success', 'msg');
                 } else if (res == 2) {
