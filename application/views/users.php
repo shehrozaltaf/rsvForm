@@ -53,9 +53,9 @@
                              <td>' . $data->username . '</td>   
                              <td>  
                                 <a href="javascript:void(0)"   onclick="getEdit(this);"
-                                        data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">edit</i></a>
+                                        data-Userid="' . $data->username . '"><i class="md-icon material-icons">edit</i></a>
                                 <a href="javascript:void(0)" onclick="getDelete(this);"
-                                         data-Userid="' . $data->idUser . '"><i class="md-icon material-icons">delete</i></a>
+                                         data-Userid="' . $data->username . '"><i class="md-icon material-icons">delete</i></a>
                                 </td>
                                 </tr>';
                                     echo $td;
@@ -155,32 +155,6 @@
                 </div>
             </div>
         </div>
-        <div class="uk-grid" data-uk-grid-margin>
-            <div class="uk-width-medium-1-1">
-                <div class="md-input-wrapper md-input-filled">
-                    <label for="edit_designation">Designation</label>
-                    <input type="text" id="edit_designation" name="edit_designation" class="md-input label-fixed"
-                           required>
-                    <span class="md-input-bar "></span>
-                </div>
-            </div>
-        </div>
-        <div class="uk-grid" data-uk-grid-margin>
-            <div class="uk-width-medium-1-1">
-                <div class="md-input-wrapper md-input-filled">
-                    <label for="edit_idGroup">Select Group Right</label>
-                    <select id="edit_idGroup" name="edit_idGroup" class="md-input" data-uk-tooltip="{pos:'top'}">
-                        <option value="0" disabled selected hidden>Select Group</option>
-                        <?php if (isset($getGroup) && $getGroup != '') {
-                            foreach ($getGroup as $key => $Group) {
-                                echo '<option value="' . $Group->idGroup . '">' . $Group->GroupName . '</option>';
-                            }
-                        } ?>
-                    </select>
-                </div>
-            </div>
-        </div>
-
         <div class="uk-modal-footer uk-text-right">
             <button type="button" class="md-btn md-btn-flat uk-modal-close">Close</button>
             <button type="button" class="md-btn md-btn-flat md-btn-flat-primary" onclick="editUser()">
@@ -200,8 +174,6 @@
                 <p>Are you sure, you want to delete this user?</p>
             </div>
         </div>
-
-
         <div class="uk-modal-footer uk-text-right">
             <button type="button" class="md-btn md-btn-flat uk-modal-close">Close</button>
             <button type="button" class="md-btn md-btn-flat md-btn-flat-primary" onclick="deleteUser()">
@@ -215,17 +187,12 @@
         $('#full_name').removeClass('md-input-danger');
         $('#username').removeClass('md-input-danger');
         $('#password').removeClass('md-input-danger');
-        $('#designation').removeClass('md-input-danger');
-        $('#idGroup').removeClass('md-input-danger');
         var flag = 0;
         var data = {};
         var Group = [];
         data['full_name'] = $('#full_name').val();
         data['username'] = $('#username').val();
         data['password'] = $('#password').val();
-        data['designation'] = $('#designation').val();
-        data['idGroup'] = $('#idGroup').val();
-
         if (data['full_name'] == '' || data['full_name'] == undefined || data['full_name'] < 1) {
             $('#full_name').addClass('md-input-danger');
             flag = 1;
@@ -241,19 +208,8 @@
             flag = 1;
             return false;
         }
-        if (data['designation'] == '' || data['designation'] == undefined || data['designation'].length < 1) {
-            $('#designation').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
-
-        if (data['idGroup'] == '' || data['idGroup'] == undefined || data['idGroup'] == 0) {
-            $('#idGroup').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
         if (flag === 0) {
-            CallAjax('<?= base_url('Users/addData')?>', data, 'POST', function (res) {
+            CallAjax('<?= base_url('index.php/Users/addData')?>', data, 'POST', function (res) {
                 console.log(res);
                 if (res != '' && JSON.parse(res).length > 0) {
                     var response = JSON.parse(res);
@@ -275,17 +231,15 @@
         var data = {};
         data['id'] = $(obj).attr('data-Userid');
         if (data['id'] != '' && data['id'] != undefined) {
-            CallAjax('<?= base_url('Users/getEdit')?>', data, 'POST', function (result) {
+            CallAjax('<?= base_url('index.php/Users/getEdit')?>', data, 'POST', function (result) {
                 if (result != '' && JSON.parse(result).length > 0) {
                     var a = JSON.parse(result);
                     console.log(a);
                     try {
                         $('#edit_idUser').val(data['id']);
                         $('#edit_full_name').val(a[0]['full_name']);
-                        $('#edit_username').val(a[0]['UserName']);
-                        $('#edit_password').val(a[0]['Password']);
-                        $('#edit_designation').val(a[0]['designation']);
-                        $('#edit_idGroup').val(a[0]['idGroup']);
+                        $('#edit_username').val(a[0]['username']);
+                        $('#edit_password').val(a[0]['password']);
                     } catch (e) {
                     }
                     showModal('editModal');
@@ -300,16 +254,12 @@
         $('#edit_full_name').removeClass('md-input-danger');
         $('#edit_username').removeClass('md-input-danger');
         $('#edit_password').removeClass('md-input-danger');
-        $('#edit_designation').removeClass('md-input-danger');
-        $('#edit_idGroup').removeClass('md-input-danger');
         var flag = 0;
         var data = {};
         data['idUser'] = $('#edit_idUser').val();
         data['full_name'] = $('#edit_full_name').val();
         data['username'] = $('#edit_username').val();
         data['password'] = $('#edit_password').val();
-        data['designation'] = $('#edit_designation').val();
-        data['idGroup'] = $('#edit_idGroup').val();
         if (data['full_name'] == '' || data['full_name'] == undefined || data['full_name'] == 0) {
             $('#edit_full_name').addClass('md-input-danger');
             flag = 1;
@@ -325,19 +275,8 @@
             flag = 1;
             return false;
         }
-        if (data['designation'] == '' || data['designation'] == undefined || data['designation'].length < 1) {
-            $('#designation').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
-
-        if (data['idGroup'] == '' || data['idGroup'] == undefined || data['idGroup'] == 0) {
-            $('#idGroup').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
         if (flag === 0) {
-            CallAjax('<?= base_url('Users/editData')?>', data, 'POST', function (res) {
+            CallAjax('<?= base_url('index.php/Users/editData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     hideModal('editModal');
                     notificatonShow('Successfully Edited', 'success');
@@ -365,7 +304,7 @@
             return false;
         }
         if (flag === 0) {
-            CallAjax('<?= base_url('Users/deleteData')?>', data, 'POST', function (res) {
+            CallAjax('<?= base_url('index.php/Users/deleteData')?>', data, 'POST', function (res) {
                 if (res == 1) {
                     hideModal('deleteModal');
                     notificatonShow('Successfully Deleted', 'success');
@@ -376,6 +315,4 @@
             });
         }
     }
-
-
 </script>
