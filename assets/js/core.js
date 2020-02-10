@@ -20,10 +20,12 @@ function CallAjax(URL, Data, Type, CallBack, isFormData) {
     }
     $.ajax(obj);
 }
+
 function showModal(id) {
     var modal = UIkit.modal("#" + id);
     modal.show();
 }
+
 function hideModal(id) {
     var modal = UIkit.modal("#" + id);
     modal.hide();
@@ -51,6 +53,7 @@ function copyURL(Projectname, Projecturl) {
     var Project_name = $('#' + Projectname).val().replace(/[_\W]+/g, "_");
     return $('#' + Projecturl).val(Project_name);
 }
+
 function validateURL(Projecturl) {
     return $('#' + Projecturl).val($('#' + Projecturl).val().replace(/[_\W]+/g, "_"));
 }
@@ -62,6 +65,8 @@ function validateEmail(mail) {
         return (false);
     }
 }
+
+
 function validateNum(phoneNoDiv) {
     $('#' + phoneNoDiv).keydown(function (event) {
         if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9
@@ -70,16 +75,17 @@ function validateNum(phoneNoDiv) {
             || (event.keyCode >= 35 && event.keyCode <= 39)) {
 
         } else {
-            if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+            if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
                 event.preventDefault();
             }
         }
     });
 }
+
 function returnMsg(divTextId, TextMsg, divTextclass, divId) {
     altair_helpers.content_preloader_hide();
     $('#' + divTextId).html('').html(TextMsg);
-    $('#' + divId).removeClass('danger').removeClass('success').addClass(divTextclass).css('display', 'block');
+    $('#' + divId).addClass(divTextclass).css('display', 'block');
     setTimeout(function () {
         $('#' + divTextId).html('');
         $('#' + divId).css('display', 'none');

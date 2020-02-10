@@ -104,13 +104,13 @@
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-3">
                                     <label for="collectedDate">Date when blood sample was collected at PHC</label>
-                                    <input class=" datePicker" id="collectedDate label-fixed"
+                                    <input class=" datePicker label-fixed" id="collectedDate"
                                            value="<?php echo date('d/m/Y') ?>"
                                            required name="collectedDate"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
                                     <label for="receivedDate">Date when blood sample was received by lab</label>
-                                    <input class="datePicker" id="receivedDate label-fixed"
+                                    <input class="datePicker label-fixed" id="receivedDate"
                                            value="<?php echo date('d/m/Y') ?>"
                                            required name="receivedDate"/>
                                 </div>
@@ -188,7 +188,7 @@
                                 </div>
                                 <div class="uk-width-medium-1-2">
                                     <label for="nextClinicVisitDate">Date of next clinic visit</label>
-                                    <input type="text" class="datePicker" id="nextClinicVisitDate label-fixed" required
+                                    <input type="text" class="datePicker label-fixed" id="nextClinicVisitDate" required
                                            name="nextClinicVisitDate"/>
                                 </div>
                             </div>
@@ -276,6 +276,7 @@
         data['nextClinicVisitDate'] = $('#nextClinicVisitDate').val();
         data['personName'] = $('#personName').val();
         data['sessionEnd'] = $('#sessionEnd').val();
+        console.log(data);
         if (data['dssid'] == '' || data['dssid'] == undefined) {
             $('#dssid').addClass('md-input-danger');
             flag = 1;
@@ -294,6 +295,7 @@
         if (data['condition'] == '' || data['condition'] == undefined) {
             $('#condition').addClass('md-input-danger');
             flag = 1;
+
             return false;
         }
         if (data['lr_wbc'] == '' || data['lr_wbc'] == undefined) {

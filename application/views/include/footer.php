@@ -1,5 +1,3 @@
-
-
 <div class="uk-notify uk-notify-bottom-center hide" id="notificationDiv" style="display: none"></div>
 
 
@@ -31,7 +29,7 @@
 <script src="<?= base_url() ?>assets/js/pages/components_notifications.min.js"></script>
 <script>
     function logout() {
-        CallAjax('<?= base_url('Dashboard/getLogout')?>', {}, 'POST', function (res) {
+        CallAjax('<?= base_url('index.php/Dashboard/getLogout')?>', {}, 'POST', function (res) {
             window.location.href = "<?php echo base_url() ?>";
         });
     }
