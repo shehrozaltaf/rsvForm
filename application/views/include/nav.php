@@ -22,6 +22,11 @@
                     <span class="menu_title">Users</span>
                 </a>
             </li>
+            <li title="Logout">
+                <a href="javascript:void(0)" onclick="logout()">
+                    <span class="menu_title">Logout</span>
+                </a>
+            </li>
         </ul>
     </div>
 </aside>

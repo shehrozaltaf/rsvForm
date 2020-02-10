@@ -54,8 +54,7 @@
                              <td>  
                                 <a href="javascript:void(0)"   onclick="getEdit(this);"
                                         data-Userid="' . $data->username . '"><i class="md-icon material-icons">edit</i></a>
-                                <a href="javascript:void(0)" onclick="getDelete(this);"
-                                         data-Userid="' . $data->username . '"><i class="md-icon material-icons">delete</i></a>
+                              
                                 </td>
                                 </tr>';
                                     echo $td;

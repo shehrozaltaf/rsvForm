@@ -62,8 +62,6 @@ function validateEmail(mail) {
         return (false);
     }
 }
-
-
 function validateNum(phoneNoDiv) {
     $('#' + phoneNoDiv).keydown(function (event) {
         if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9
@@ -81,10 +79,9 @@ function validateNum(phoneNoDiv) {
 function returnMsg(divTextId, TextMsg, divTextclass, divId) {
     altair_helpers.content_preloader_hide();
     $('#' + divTextId).html('').html(TextMsg);
-    $('#' + divId).addClass(divTextclass).css('display', 'block');
+    $('#' + divId).removeClass('danger').removeClass('success').addClass(divTextclass).css('display', 'block');
     setTimeout(function () {
         $('#' + divTextId).html('');
         $('#' + divId).css('display', 'none');
     }, 4000);
 }
-

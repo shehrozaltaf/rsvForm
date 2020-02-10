@@ -21,4 +21,14 @@ class MForm extends CI_Model
         return $query->result();
     }
 
+    function checkDuplicateDssId($dssid)
+    {
+        $this->db->select('*');
+        $this->db->from('form2c');
+        $this->db->where("dssid", $dssid);
+        $this->db->where("status", 1);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 }

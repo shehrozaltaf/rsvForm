@@ -6,7 +6,6 @@
 
 <div id="page_content">
     <div id="page_content_inner">
-
         <div class="md-card">
             <div class="md-card-content">
                 <h3 class="heading_a">Data</h3>
@@ -16,7 +15,7 @@
                             <div class="md-input-wrapper">
                                 <label for="srchDssID">DSS ID</label>
                                 <input type="text" class="md-input" id="srchDssID" required
-                                       name="srchDssID" value="AGAS04068A1"/>
+                                       name="srchDssID"/>
                                 <span class="md-input-bar "></span></div>
                             <span class="uk-input-group-addon  " onclick="srchDssID()"><a class="md-btn"
                                                                                           href="javascript:void(0)">Search</a></span>
@@ -104,18 +103,21 @@
                         <div class="uk-form-row">
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-3">
-                                    <label for=" ">Date when blood sample was collected at PHC</label>
-                                    <input class=" datePicker" id="participantID" value="<?php echo date('d/m/Y') ?>"
-                                           required name="participantID"/>
+                                    <label for="collectedDate">Date when blood sample was collected at PHC</label>
+                                    <input class=" datePicker" id="collectedDate label-fixed"
+                                           value="<?php echo date('d/m/Y') ?>"
+                                           required name="collectedDate"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for=" ">Date when blood sample was received by lab</label>
-                                    <input class=" datePicker" id="participantID" value="<?php echo date('d/m/Y') ?>"
-                                           required name="participantID"/>
+                                    <label for="receivedDate">Date when blood sample was received by lab</label>
+                                    <input class="datePicker" id="receivedDate label-fixed"
+                                           value="<?php echo date('d/m/Y') ?>"
+                                           required name="receivedDate"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for=" ">Condition of sample when received by lab</label>
-                                    <select id="select_demo_2" class="md-input" data-uk-tooltip="{pos:'top'}"
+                                    <label for="condition">Condition of sample when received by lab</label>
+                                    <select id="condition" name="condition" class="md-input label-fixed"
+                                            data-uk-tooltip="{pos:'top'}"
                                             title="Select with tooltip">
                                         <option value="" disabled selected hidden>
                                         </option>
@@ -133,34 +135,36 @@
                             <h4 class="heading_c">Enter lab results</h4>
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-3">
-                                    <label for="participantID">WBC</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="lr_wbc">WBC</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_wbc" required
+                                           name="lr_wbc"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for="participantID">Neutrophil</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="lr_neutrophil">Neutrophil</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_neutrophil" required
+                                           name="lr_neutrophil"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for="participantID">Lymphocyte</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="lr_lymphocyte">Lymphocyte</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_lymphocyte" required
+                                           name="lr_lymphocyte"/>
+                                </div>
+                            </div>
+                            <div class="uk-grid" data-uk-grid-margin>
+                                <div class="uk-width-medium-1-3">
+                                    <label for="lr_monocyte">Monocyte</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_monocyte" required
+                                           name="lr_monocyte"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for="participantID">Monocyte</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="lr_eosinophil">Eosinophil</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_eosinophil" required
+                                           name="lr_eosinophil"/>
                                 </div>
                                 <div class="uk-width-medium-1-3">
-                                    <label for="participantID">Eosinophil</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
-                                </div>
-                                <div class="uk-width-medium-1-3">
-                                    <label for="participantID">Basophil</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="lr_basophil">Basophil</label>
+                                    <input type="text" class="md-input label-fixed" id="lr_basophil" required
+                                           name="lr_basophil"/>
                                 </div>
                             </div>
                         </div>
@@ -171,11 +175,9 @@
                         <div class="uk-form-row">
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-2">
-                                    <label for="participantID">Do the child need to attend a clinical visit
-                                        to
-                                        perform
-                                        any uncompleted test</label>
-                                    <select id="select_demo_2" class="md-input"
+                                    <label for="clinicalVisit">Do the child need to attend a clinical visit to
+                                        perform any uncompleted test</label>
+                                    <select id="clinicalVisit" name="clinicalVisit" class="md-input label-fixed"
                                             data-uk-tooltip="{pos:'top'}"
                                             title="Select with tooltip">
                                         <option value="" disabled selected hidden>
@@ -185,9 +187,9 @@
                                     </select>
                                 </div>
                                 <div class="uk-width-medium-1-2">
-                                    <label for="participantID">Date of next clinic visit</label>
-                                    <input type="text" class="datePicker" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="nextClinicVisitDate">Date of next clinic visit</label>
+                                    <input type="text" class="datePicker" id="nextClinicVisitDate label-fixed" required
+                                           name="nextClinicVisitDate"/>
                                 </div>
                             </div>
                         </div>
@@ -198,25 +200,38 @@
                         <div class="uk-form-row">
                             <div class="uk-grid" data-uk-grid-margin>
                                 <div class="uk-width-medium-1-2">
-                                    <label for="participantID">Name of the person read and entered the lab
+                                    <label for="personName">Name of the person read and entered the lab
                                         results in form 2-C</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <input type="text" class="md-input label-fixed" id="personName" required
+                                           name="personName"/>
                                 </div>
                                 <div class="uk-width-medium-1-2">
-                                    <label for="participantID">End of the session</label>
-                                    <input type="text" class="md-input" id="participantID" required
-                                           name="participantID"/>
+                                    <label for="sessionEnd">End of the session</label>
+                                    <input type="text" class="md-input label-fixed" id="sessionEnd" required
+                                           name="sessionEnd"/>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <input type="button" value="Send All" id="btn-Edit" onclick="addData()" class="md-btn md-btn-primary">
+                <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-medium-1-1">
+                        <div class="uk-form-row">
+                            <input type="button" value="Submit" id="btn-Add" onclick="addData()"
+                                   class="md-btn md-btn-primary">
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <link rel="stylesheet"
       href="<?php echo base_url() ?>assets/bower_components/kendo-ui/styles/kendo.common-material.min.css"/>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/bower_components/kendo-ui/styles/kendo.material.min.css"
@@ -229,6 +244,127 @@
             format: "dd-MM-yyyy"
         });
     });
+
+    function addData() {
+        $('#dssid').removeClass('md-input-danger');
+        $('#collectedDate').removeClass('md-input-danger');
+        $('#receivedDate').removeClass('md-input-danger');
+        $('#condition').removeClass('md-input-danger');
+        $('#lr_wbc').removeClass('md-input-danger');
+        $('#lr_neutrophil').removeClass('md-input-danger');
+        $('#lr_lymphocyte').removeClass('md-input-danger');
+        $('#lr_monocyte').removeClass('md-input-danger');
+        $('#lr_eosinophil').removeClass('md-input-danger');
+        $('#lr_basophil').removeClass('md-input-danger');
+        $('#clinicalVisit').removeClass('md-input-danger');
+        $('#nextClinicVisitDate').removeClass('md-input-danger').css('border', '1px solid grey');
+        $('#personName').removeClass('md-input-danger');
+        $('#sessionEnd').removeClass('md-input-danger');
+        var flag = 0;
+        var data = {};
+        data['dssid'] = $('#dssid').val();
+        data['collectedDate'] = $('#collectedDate').val();
+        data['receivedDate'] = $('#receivedDate').val();
+        data['condition'] = $('#condition').val();
+        data['lr_wbc'] = $('#lr_wbc').val();
+        data['lr_neutrophil'] = $('#lr_neutrophil').val();
+        data['lr_lymphocyte'] = $('#lr_lymphocyte').val();
+        data['lr_monocyte'] = $('#lr_monocyte').val();
+        data['lr_eosinophil'] = $('#lr_eosinophil').val();
+        data['lr_basophil'] = $('#lr_basophil').val();
+        data['clinicalVisit'] = $('#clinicalVisit').val();
+        data['nextClinicVisitDate'] = $('#nextClinicVisitDate').val();
+        data['personName'] = $('#personName').val();
+        data['sessionEnd'] = $('#sessionEnd').val();
+        if (data['dssid'] == '' || data['dssid'] == undefined) {
+            $('#dssid').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['collectedDate'] == '' || data['collectedDate'] == undefined) {
+            $('#collectedDate').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['receivedDate'] == '' || data['receivedDate'] == undefined) {
+            $('#receivedDate').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['condition'] == '' || data['condition'] == undefined) {
+            $('#condition').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_wbc'] == '' || data['lr_wbc'] == undefined) {
+            $('#lr_wbc').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_neutrophil'] == '' || data['lr_neutrophil'] == undefined) {
+            $('#lr_neutrophil').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_lymphocyte'] == '' || data['lr_lymphocyte'] == undefined) {
+            $('#lr_lymphocyte').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_monocyte'] == '' || data['lr_monocyte'] == undefined) {
+            $('#lr_monocyte').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_eosinophil'] == '' || data['lr_eosinophil'] == undefined) {
+            $('#lr_eosinophil').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['lr_basophil'] == '' || data['lr_basophil'] == undefined) {
+            $('#lr_basophil').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['clinicalVisit'] == '' || data['clinicalVisit'] == undefined) {
+            $('#clinicalVisit').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['nextClinicVisitDate'] == '' || data['nextClinicVisitDate'] == undefined) {
+            $('#nextClinicVisitDate').addClass('md-input-danger').css('border', '1px solid red');
+            flag = 1;
+            return false;
+        }
+        if (data['personName'] == '' || data['personName'] == undefined) {
+            $('#personName').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (data['sessionEnd'] == '' || data['sessionEnd'] == undefined) {
+            $('#sessionEnd').addClass('md-input-danger');
+            flag = 1;
+            return false;
+        }
+        if (flag === 0) {
+            $('#btn-Add').attr('disabled', 'disabled');
+            CallAjax('<?php echo base_url('index.php/Form/addData')?>', data, 'POST', function (res) {
+                $('#btn-Add').removeAttr('disabled', 'disabled');
+                if (res != '' && JSON.parse(res).length > 0) {
+                    var response = JSON.parse(res);
+                    try {
+                        notificatonShow(response[0], response[1]);
+                        if (response[1] === 'success') {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 1500);
+                        }
+                    } catch (e) {
+                    }
+                }
+            });
+        }
+    }
 
     $("#srchDssID").keyup(function () {
         var srchDss = $('#srchDssID').val();
@@ -301,49 +437,8 @@
         $('#gender').val($('#edit_gender').val());
         $('#child_name').val($('#edit_child_name').val());*/
         $('#Form').css('display', 'block');
-    }
-
-    function addData() {
-        $('#full_name').removeClass('md-input-danger');
-        $('#username').removeClass('md-input-danger');
-        $('#password').removeClass('md-input-danger');
-        var flag = 0;
-        var data = {};
-        var Group = [];
-        data['full_name'] = $('#full_name').val();
-        data['username'] = $('#username').val();
-        data['password'] = $('#password').val();
-        if (data['full_name'] == '' || data['full_name'] == undefined || data['full_name'] < 1) {
-            $('#full_name').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
-        if (data['username'] == '' || data['username'] == undefined || data['username'].length < 1) {
-            $('#username').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
-        if (data['password'] == '' || data['password'] == undefined || data['password'].length < 3) {
-            $('#password').addClass('md-input-danger');
-            flag = 1;
-            return false;
-        }
-        if (flag === 0) {
-            CallAjax('<?= base_url('index.php/Users/addData')?>', data, 'POST', function (res) {
-                console.log(res);
-                if (res != '' && JSON.parse(res).length > 0) {
-                    var response = JSON.parse(res);
-                    try {
-                        console.log(response);
-                        notificatonShow(response[0], response[1]);
-                        if (response[1] === 'success') {
-                            hideModal('addModal');
-                            window.location.reload();
-                        }
-                    } catch (e) {
-                    }
-                }
-            });
-        }
+        $('html, body').animate({
+            scrollTop: $(document).height()
+        }, 'slow');
     }
 </script>

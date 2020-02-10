@@ -38,7 +38,7 @@
     <!-- d3 -->
     <script src="<?= base_url() ?>assets/bower_components/d3/d3.min.js"></script>
 </head>
-<body class="disable_transitions sidebar_main_open sidebar_main_swipe">
+<body class=" sidebar_main_swipe">
 <!-- main header -->
 <header id="header_main">
     <div class="header_main_content">
